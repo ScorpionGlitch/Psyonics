@@ -8,7 +8,7 @@
 
 void UQuestLogComponent::AddNewQuest(FName QuestID)
 {
-	CurrentActiveQuests.AddUnique(QuestID);
+	CurrentActiveQuestIDs.AddUnique(QuestID);
 
 	AQuestBase* Quest = GetWorld()->SpawnActorDeferred<AQuestBase>(AQuestBase::StaticClass(), FTransform::Identity);
 	Quest->QuestID = QuestID;
@@ -23,7 +23,7 @@ void UQuestLogComponent::CompleteQuest()
 
 bool UQuestLogComponent::QueryActiveQuest(FName QuestID)
 {
-	return CurrentActiveQuests.Contains(QuestID);
+	return CurrentActiveQuestIDs.Contains(QuestID);
 }
 
 void UQuestLogComponent::TrackQuest()

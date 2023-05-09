@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GameModes/PsyonicGameMode.h"
-#include "Characters/PsyonicCharacter.h"
+#include "..\..\Public\Characters\PsyonicNPC.h"
 #include "UObject/ConstructorHelpers.h"
 
 APsyonicGameMode::APsyonicGameMode()

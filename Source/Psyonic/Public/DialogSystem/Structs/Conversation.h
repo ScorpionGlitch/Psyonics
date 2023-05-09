@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "Response.h"
 #include "../Enums/DialogActionType.h"
 
 #include "Conversation.generated.h"
 
-struct FResponse;
 /** Please add a struct description */
 USTRUCT(BlueprintType)
 struct FConversation : public FTableRowBase

@@ -28,13 +28,13 @@ public:
 	
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Current Active Quests"))
-	TArray<FName> CurrentActiveQuests;
+	TArray<FName> CurrentActiveQuestIDs;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Completed Quests"))
-	TArray<FName> CompletedQuests;
+	TArray<FName> CompletedQuestIDs;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Current Focused Quest"))
-	FName CurrentFocusedQuest;
+	FName CurrentFocusedQuestID;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Current Quests"))
 	TArray<AQuestBase*> CurrentQuests;
