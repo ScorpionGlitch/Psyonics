@@ -4,18 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
-#include "Response.h"
+#include "ResponseDetails.h"
 #include "../Enums/DialogActionType.h"
 
-#include "Conversation.generated.h"
+#include "ConversationDetails.generated.h"
 
 /** Please add a struct description */
 USTRUCT(BlueprintType)
-struct FConversation : public FTableRowBase
+struct FConversationDetails : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	FConversation()
+	FConversationDetails()
 	{
 	}
 
@@ -25,7 +25,7 @@ struct FConversation : public FTableRowBase
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Responses"))
-	TArray<FResponse> Responses;
+	TArray<FResponseDetails> Responses;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Dialog Actions"))
 	TMap<EDialogActionType, FString> DialogActions;

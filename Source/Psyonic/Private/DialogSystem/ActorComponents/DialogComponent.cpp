@@ -8,7 +8,7 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 	if (ConversationHandle.IsNull())
 		return false;
 	
-	FConversation *Conversation = ConversationHandle.GetRow<FConversation>(FString(""));
+	FConversationDetails *Conversation = ConversationHandle.GetRow<FConversationDetails>(FString(""));
 	if (Conversation)
 	{
 		return true;

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "DialogSystem/Structs/Conversation.h"
+#include "..\Structs\ConversationDetails.h"
 #include "DialogComponent.generated.h"
 
 

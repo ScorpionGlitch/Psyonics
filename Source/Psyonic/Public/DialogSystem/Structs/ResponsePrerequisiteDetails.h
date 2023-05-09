@@ -1,15 +1,15 @@
 ﻿#pragma once
 #include "Engine/DataTable.h"
 
-#include "ResponsePrerequisite.generated.h"
+#include "ResponsePrerequisiteDetails.generated.h"
 
 /** Please add a struct description */
 USTRUCT(BlueprintType)
-struct FResponsePrerequisite : public FTableRowBase
+struct FResponsePrerequisiteDetails : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	FResponsePrerequisite()
+	FResponsePrerequisiteDetails()
 	{
 	}
 

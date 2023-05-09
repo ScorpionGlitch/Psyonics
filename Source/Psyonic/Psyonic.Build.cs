@@ -32,7 +32,8 @@ public class Psyonic : ModuleRules
 			"EnhancedInput",
 			"GameplayTags",
 			"GameplayTasks",
-			"GameplayAbilities"
+			"GameplayAbilities",
+			"UMG"
 		});
 	}
 }

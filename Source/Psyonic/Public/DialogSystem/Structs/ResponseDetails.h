@@ -1,16 +1,16 @@
 ﻿#pragma once
 #include "Engine/DataTable.h"
-#include "ResponsePrerequisite.h"
-#include "Response.generated.h"
+#include "ResponsePrerequisiteDetails.h"
+#include "ResponseDetails.generated.h"
 
 //struct FResponsePrerequisite;
 /** Please add a struct description */
 USTRUCT(BlueprintType)
-struct FResponse : public FTableRowBase
+struct FResponseDetails : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	FResponse()
+	FResponseDetails()
 	{
 	}
 
@@ -20,7 +20,7 @@ struct FResponse : public FTableRowBase
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Prerequisites"))
-	TArray<FResponsePrerequisite> Prerequisites;
+	TArray<FResponsePrerequisiteDetails> Prerequisites;
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="NextConversationName"))
