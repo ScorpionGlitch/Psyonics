@@ -4,17 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "PsyonicCharacterBase.h"
-#include "PsyonicCharacter.generated.h"
+#include "PsyonicPlayer.generated.h"
 
 class UMotionWarpingComponent;
 class UAbilitySystemComponent;
 
 UCLASS(config=Game)
-class APsyonicCharacter : public APsyonicCharacterBase
+class APsyonicPlayer : public APsyonicCharacterBase
 {
 	GENERATED_BODY()
 
 public:
-	APsyonicCharacter(const class FObjectInitializer& ObjectInitializer);
+	APsyonicPlayer(const class FObjectInitializer& ObjectInitializer);
 };
 
