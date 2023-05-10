@@ -16,5 +16,7 @@ class APsyonicPlayer : public APsyonicCharacterBase
 
 public:
 	APsyonicPlayer(const class FObjectInitializer& ObjectInitializer);
+
+	virtual void BeginPlay() override;
 };
 

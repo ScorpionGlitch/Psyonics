@@ -4,7 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "..\Structs\ConversationDetails.h"
+#include "DialogSystem/Structs/ConversationDetails.h"
+#include "DialogSystem/Widgets/DialogWidget.h"
 #include "DialogComponent.generated.h"
 
 
@@ -19,6 +20,12 @@ public:
 
 	UDialogComponent();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TSubclassOf<UDialogWidget> DialogWidgetClass;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UDialogWidget* DialogWidget;
+	
 protected:
 	virtual void BeginPlay() override;
 };

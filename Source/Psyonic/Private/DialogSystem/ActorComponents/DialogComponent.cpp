@@ -1,7 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "DialogSystem/ActorComponents/DialogComponent.h"
+#include "Blueprint/UserWidget.h"
+
+UDialogComponent::UDialogComponent()
+{
+	PrimaryComponentTick.bCanEverTick = false;
+
+	DialogWidgetClass = nullptr;
+	DialogWidget = nullptr;
+}
 
 bool UDialogComponent::StartConversation(const FDataTableRowHandle& ConversationHandle)
 {
@@ -17,22 +25,19 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 	return false;
 }
 
-// Sets default values for this component's properties
-UDialogComponent::UDialogComponent()
-{
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = false;
-
-	// ...
-}
-
-
 // Called when the game starts
 void UDialogComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
+	const APawn* Owner = GetOwner<APawn>();
+	check(Owner);
+	if (Owner->IsLocallyControlled() && DialogWidgetClass)
+	{
+		APlayerController* PlayerController = Owner->GetController<APlayerController>();
+		check(PlayerController);
+		DialogWidget = CreateWidget<UDialogWidget>(PlayerController, DialogWidgetClass);
+		check(DialogWidget);
+		DialogWidget->AddToPlayerScreen();
+	}
 }

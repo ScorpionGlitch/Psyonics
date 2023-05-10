@@ -5,4 +5,12 @@
 APsyonicPlayer::APsyonicPlayer(const class FObjectInitializer& ObjectInitializer) :
 Super(ObjectInitializer)
 {
+	
+}
+
+void APsyonicPlayer::BeginPlay()
+{
+	Super::BeginPlay();
+
+	IsLocallyControlled();
 }
