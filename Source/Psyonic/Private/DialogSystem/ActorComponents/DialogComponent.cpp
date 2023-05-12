@@ -19,9 +19,9 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 
 	if (FConversationDetails *Conversation = ConversationHandle.GetRow<FConversationDetails>(FString("")))
 	{
+		DialogWidget->AddToPlayerScreen();
 		DialogWidget->SpeakersNameTextBlock->SetText(FText::FromString("Speakers Name TBD"));
 		DialogWidget->DialogTextBlock->SetText(Conversation->DialogLines[0]);
-		DialogWidget->AddToPlayerScreen();
 		return true;
 	}
 	
