@@ -18,6 +18,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool StartConversation(const FDataTableRowHandle& ConversationHandle);
 
+	UFUNCTION(BlueprintCallable)
+	void HideConversation();
+
 	UDialogComponent();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

@@ -2,6 +2,7 @@
 
 #include "DialogSystem/ActorComponents/DialogComponent.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/TextBlock.h"
 
 UDialogComponent::UDialogComponent()
 {
@@ -15,14 +16,23 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 {
 	if (ConversationHandle.IsNull())
 		return false;
-	
-	FConversationDetails *Conversation = ConversationHandle.GetRow<FConversationDetails>(FString(""));
-	if (Conversation)
+
+	if (FConversationDetails *Conversation = ConversationHandle.GetRow<FConversationDetails>(FString("")))
 	{
+		DialogWidget->SpeakersNameTextBlock->SetText(FText::FromString("Speakers Name TBD"));
+		DialogWidget->DialogTextBlock->SetText(Conversation->DialogLines[0]);
+		DialogWidget->AddToPlayerScreen();
 		return true;
 	}
 	
 	return false;
+}
+
+void UDialogComponent::HideConversation()
+{
+	DialogWidget->SpeakersNameTextBlock->SetText(FText::GetEmpty());
+	DialogWidget->DialogTextBlock->SetText(FText::GetEmpty());
+	DialogWidget->RemoveFromParent();
 }
 
 // Called when the game starts
@@ -38,6 +48,5 @@ void UDialogComponent::BeginPlay()
 		check(PlayerController);
 		DialogWidget = CreateWidget<UDialogWidget>(PlayerController, DialogWidgetClass);
 		check(DialogWidget);
-		DialogWidget->AddToPlayerScreen();
 	}
 }
