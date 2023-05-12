@@ -3,6 +3,7 @@
 #include "DialogSystem/ActorComponents/DialogComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/TextBlock.h"
+#include "GameFramework/Character.h"
 
 UDialogComponent::UDialogComponent()
 {
@@ -19,9 +20,20 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 
 	if (FConversationDetails *Conversation = ConversationHandle.GetRow<FConversationDetails>(FString("")))
 	{
+		const ACharacter* Character = GetOwner<ACharacter>();
+		APlayerController* Controller = Character->GetController<APlayerController>();
+
 		DialogWidget->AddToPlayerScreen();
 		DialogWidget->SpeakersNameTextBlock->SetText(FText::FromString("Speakers Name TBD"));
 		DialogWidget->DialogTextBlock->SetText(Conversation->DialogLines[0]);
+
+		FInputModeUIOnly InputMode = FInputModeUIOnly();
+		//InputMode.SetWidgetToFocus(DialogWidget->GetCachedWidget());
+		InputMode.SetWidgetToFocus(DialogWidget->TakeWidget());
+		
+		Controller->SetInputMode(InputMode);
+		Controller->SetShowMouseCursor(true);
+		
 		return true;
 	}
 	
@@ -30,6 +42,11 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 
 void UDialogComponent::HideConversation()
 {
+	ACharacter* Character = GetOwner<ACharacter>();
+	APlayerController* Controller = Character->GetController<APlayerController>();
+	Controller->SetInputMode(FInputModeGameOnly());
+	Controller->SetShowMouseCursor(false);
+	
 	DialogWidget->SpeakersNameTextBlock->SetText(FText::GetEmpty());
 	DialogWidget->DialogTextBlock->SetText(FText::GetEmpty());
 	DialogWidget->RemoveFromParent();
