@@ -13,9 +13,12 @@ class UDialogWidget : public UUserWidget
 	GENERATED_BODY()
 	
 public:
-	void SetSpeakersName(FString SpeakersName);
-	void SetConversation(FConversationDetails Conversation);
+	UFUNCTION(BlueprintCallable)
+	void SetResponses(TArray<FResponseDetails> Responses);
 
+	UFUNCTION(BlueprintCallable)
+	void ClearResponses();
+	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TSubclassOf<class UResponseButtonWidget> ResponseButtonClass;
 	
@@ -24,4 +27,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (BindWidget))
 	class UTextBlock* DialogTextBlock;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (BindWidget))
+	class UVerticalBox* ResponsesVerticalBox;
 };

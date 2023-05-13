@@ -18,17 +18,21 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 	if (ConversationHandle.IsNull())
 		return false;
 
-	if (FConversationDetails *Conversation = ConversationHandle.GetRow<FConversationDetails>(FString("")))
+	ConversationDetails = ConversationHandle.GetRow<FConversationDetails>(FString(""));
+	
+	if (ConversationDetails)
 	{
 		const ACharacter* Character = GetOwner<ACharacter>();
 		APlayerController* Controller = Character->GetController<APlayerController>();
 
 		DialogWidget->AddToPlayerScreen();
 		DialogWidget->SpeakersNameTextBlock->SetText(FText::FromString("Speakers Name TBD"));
-		DialogWidget->DialogTextBlock->SetText(Conversation->DialogLines[0]);
+
+		DialogIndex = 0;
+		DialogWidget->ClearResponses();
+		DialogWidget->DialogTextBlock->SetText(ConversationDetails->DialogLines[DialogIndex]);
 
 		FInputModeUIOnly InputMode = FInputModeUIOnly();
-		//InputMode.SetWidgetToFocus(DialogWidget->GetCachedWidget());
 		InputMode.SetWidgetToFocus(DialogWidget->TakeWidget());
 		
 		Controller->SetInputMode(InputMode);
@@ -50,6 +54,25 @@ void UDialogComponent::HideConversation()
 	DialogWidget->SpeakersNameTextBlock->SetText(FText::GetEmpty());
 	DialogWidget->DialogTextBlock->SetText(FText::GetEmpty());
 	DialogWidget->RemoveFromParent();
+}
+
+void UDialogComponent::Next()
+{
+	if (DialogIndex >= ConversationDetails->DialogLines.Num() - 1)
+	{
+		// TODO hide responses that do not meet prerequisites
+		if (ConversationDetails->Responses.Num() > 0)
+		{
+			DialogWidget->SetResponses(ConversationDetails->Responses);
+		} else
+		{
+			HideConversation();
+		}
+	} else
+	{
+		DialogIndex++;
+		DialogWidget->DialogTextBlock->SetText(ConversationDetails->DialogLines[DialogIndex]);
+	}
 }
 
 // Called when the game starts

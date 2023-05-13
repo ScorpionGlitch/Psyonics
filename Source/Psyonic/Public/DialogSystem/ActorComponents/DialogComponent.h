@@ -21,6 +21,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void HideConversation();
 
+	UFUNCTION(BlueprintCallable)
+	void Next();
+	
 	UDialogComponent();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
@@ -31,4 +34,10 @@ public:
 	
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	UPROPERTY()
+	int32 DialogIndex = 0;
+	
+	FConversationDetails* ConversationDetails;
 };
