@@ -16,6 +16,8 @@ void UDialogWidget::SetResponses(TArray<FResponseDetails> Responses)
 			UResponseButtonWidget* ResponseButtonWidget = CreateWidget<UResponseButtonWidget>(this, ResponseButtonClass);
 			ResponseButtonWidget->SetResponse(ResponseDetails);
 			ResponsesVerticalBox->AddChild(ResponseButtonWidget);
+
+			ResponseButtonWidget->OnResponseClicked.AddDynamic(this, &UDialogWidget::ResponseSelected);
 		}
 	}
 }
@@ -23,4 +25,15 @@ void UDialogWidget::SetResponses(TArray<FResponseDetails> Responses)
 void UDialogWidget::ClearResponses()
 {
 	ResponsesVerticalBox->ClearChildren();
+
+	for (UResponseButtonWidget* ResponseButton : ResponseButtons)
+	{
+		ResponseButton->OnResponseClicked.RemoveAll(this);
+	}
+	ResponseButtons.Empty();
+}
+
+void UDialogWidget::ResponseSelected(const FResponseDetails& ResponseDetails)
+{
+	OnResponseSelected.Broadcast(ResponseDetails);
 }

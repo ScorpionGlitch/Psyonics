@@ -5,7 +5,7 @@
 #include "DialogSystem/Structs/ConversationDetails.h"
 #include "DialogWidget.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnResponseSelected, FResponseDetails, ResponseDetails);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnResponseSelected, const FResponseDetails&, ResponseDetails);
 
 UCLASS(Abstract)
 class UDialogWidget : public UUserWidget
@@ -18,6 +18,11 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ClearResponses();
+
+	FOnResponseSelected OnResponseSelected;
+
+	UFUNCTION()
+	void ResponseSelected(const FResponseDetails& ResponseDetails);
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TSubclassOf<class UResponseButtonWidget> ResponseButtonClass;
@@ -30,4 +35,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (BindWidget))
 	class UVerticalBox* ResponsesVerticalBox;
+
+private:
+	TArray<UResponseButtonWidget*> ResponseButtons;
 };
