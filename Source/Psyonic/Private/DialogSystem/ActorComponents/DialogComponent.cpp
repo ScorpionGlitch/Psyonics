@@ -24,7 +24,7 @@ void UDialogComponent::StartConversation(const FConversationDetails& Conversatio
 
 	DialogIndex = -1;
 	DialogWidget->ClearResponses();
-	DialogWidget->OnResponseSelected.AddDynamic(this, &UDialogComponent::ResponseClicked);
+	DialogWidget->OnResponseSelected.AddDynamic(this, &UDialogComponent::ResponseSelected);
 	Next();
 	//DialogWidget->DialogTextBlock->SetText(Conversation.DialogLines[DialogIndex]);
 
