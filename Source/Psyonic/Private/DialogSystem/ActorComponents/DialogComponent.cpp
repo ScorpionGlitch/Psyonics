@@ -54,7 +54,7 @@ void UDialogComponent::Next()
 	if (DialogIndex < Conversation.DialogLines.Num() - 1)
 	{
 		DialogIndex++;
-		DialogWidget->DialogTextBlock->SetText(Conversation.DialogLines[DialogIndex]);
+		DialogWidget->DialogTextBlock->SetText(Conversation.DialogLines[DialogIndex].DialogText);
 		if (DialogIndex >= Conversation.DialogLines.Num() - 1)
 		{
 			// TODO hide responses that do not meet prerequisites

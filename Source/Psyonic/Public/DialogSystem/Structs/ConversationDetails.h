@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "DialogLineDetails.h"
 #include "Engine/DataTable.h"
 #include "ResponseDetails.h"
 #include "../Enums/DialogActionType.h"
@@ -21,7 +22,7 @@ struct FConversationDetails : public FTableRowBase
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Dialog Lines"))
-	TArray<FText> DialogLines;
+	TArray<FDialogLineDetails> DialogLines;
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Responses"))
