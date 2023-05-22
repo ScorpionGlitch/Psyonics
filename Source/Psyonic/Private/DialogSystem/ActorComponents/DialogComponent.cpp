@@ -13,7 +13,7 @@ UDialogComponent::UDialogComponent()
 	DialogWidget = nullptr;
 }
 
-void UDialogComponent::StartConversation(const FConversationDetails& ConversationDetails)
+void UDialogComponent::StartConversation(FConversationDetails ConversationDetails)
 {
 	Conversation = ConversationDetails;
 	const ACharacter* Character = GetOwner<ACharacter>();
@@ -57,7 +57,6 @@ void UDialogComponent::Next()
 		DialogWidget->DialogTextBlock->SetText(Conversation.DialogLines[DialogIndex].DialogText);
 		if (DialogIndex >= Conversation.DialogLines.Num() - 1)
 		{
-			// TODO hide responses that do not meet prerequisites
 			if (Conversation.Responses.Num() > 0)
 			{
 				DialogWidget->SetResponses(Conversation.Responses);
@@ -71,7 +70,17 @@ void UDialogComponent::Next()
 
 void UDialogComponent::ResponseSelected(const FResponseDetails& Response)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *Response.ResponseText.ToString())
+	FConversationDetails* ConversationDetails = Response.NextConversationHandle.GetRow<FConversationDetails>(TEXT(""));
+	HideConversation();
+	if (ConversationDetails)
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("Next Conversation: %s"), *ConversationDetails->DialogLines[0].DialogText.ToString());
+		StartConversation(*ConversationDetails);
+	} else
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("No Response: %s"), *Response.ResponseText.ToString())
+		
+	}
 }
 
 // Called when the game starts

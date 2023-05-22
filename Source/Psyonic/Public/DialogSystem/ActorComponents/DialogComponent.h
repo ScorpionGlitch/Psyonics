@@ -16,7 +16,7 @@ class PSYONIC_API UDialogComponent : public UActorComponent
 
 public:
 	UFUNCTION(BlueprintCallable)
-	void StartConversation(const FConversationDetails& ConversationDetails);
+	void StartConversation(FConversationDetails ConversationDetails);
 
 	UFUNCTION(BlueprintCallable)
 	void HideConversation();
@@ -41,6 +41,7 @@ protected:
 private:
 	UPROPERTY()
 	int32 DialogIndex = 0;
-	
+
+	UPROPERTY()
 	FConversationDetails Conversation;
 };
