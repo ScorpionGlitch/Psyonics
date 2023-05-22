@@ -1,4 +1,4 @@
-﻿#include "Characters/Abilities/PsyonicGameplayAbility.h"
+﻿#include "AbilitySystem/PsyonicGameplayAbility.h"
 
 #include "AbilitySystemComponent.h"
 

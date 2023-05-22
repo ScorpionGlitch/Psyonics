@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Characters/Abilities/AttributeSets/PsyonicAttributeSetBase.h"
+#include "AbilitySystem/AttributeSets/PsyonicAttributeSetBase.h"
 
 #include "Net/UnrealNetwork.h"
 
