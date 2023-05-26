@@ -9,9 +9,9 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "MotionWarpingComponent.h"
 #include "AbilitySystemComponent.h"
-#include "Characters/Abilities/PsyonicAbilitySystemComponent.h"
-#include "Characters/Abilities/PsyonicGameplayAbility.h"
-#include "Characters/Abilities/AttributeSets/PsyonicAttributeSetBase.h"
+#include "AbilitySystem/PsyonicAbilitySystemComponent.h"
+#include "AbilitySystem/PsyonicGameplayAbility.h"
+#include "AbilitySystem/AttributeSets/PsyonicAttributeSetBase.h"
 
 FName APsyonicCharacterBase::MotionWarpingComponentName(TEXT("MotionWarping"));
 

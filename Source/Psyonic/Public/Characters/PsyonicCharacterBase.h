@@ -7,7 +7,7 @@
 #include "InputActionValue.h"
 #include "AbilitySystemInterface.h"
 #include "GameplayTagContainer.h"
-#include "Enums/PsyonicAbilityID.h"
+#include "AbilitySystem/Enums/PsyonicAbilityID.h"
 #include "PsyonicCharacterBase.generated.h"
 
 class UMotionWarpingComponent;
