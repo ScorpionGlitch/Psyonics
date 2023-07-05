@@ -104,9 +104,12 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, Category=Character)
 	bool bRunning = false;
-	
-	void Run();
-	void StopRunning();
+
+	UFUNCTION(BlueprintCallable, Category=Character)
+	virtual void Run();
+
+	UFUNCTION(BlueprintCallable, Category=Character)
+	virtual void StopRunning();
 	/** End Running functions and variables */
 
 	

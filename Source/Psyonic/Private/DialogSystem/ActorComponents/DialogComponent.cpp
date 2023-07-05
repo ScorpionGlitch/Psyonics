@@ -22,6 +22,7 @@ bool UDialogComponent::StartConversation(const FDataTableRowHandle& Conversation
 		DialogWidget->AddToPlayerScreen();
 		DialogWidget->SpeakersNameTextBlock->SetText(FText::FromString("Speakers Name TBD"));
 		DialogWidget->DialogTextBlock->SetText(Conversation->DialogLines[0]);
+		OnDialogStart.Broadcast();
 		return true;
 	}
 	
@@ -33,6 +34,7 @@ void UDialogComponent::HideConversation()
 	DialogWidget->SpeakersNameTextBlock->SetText(FText::GetEmpty());
 	DialogWidget->DialogTextBlock->SetText(FText::GetEmpty());
 	DialogWidget->RemoveFromParent();
+	OnDialogEnd.Broadcast();
 }
 
 // Called when the game starts
@@ -40,11 +42,12 @@ void UDialogComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	const APawn* Owner = GetOwner<APawn>();
-	check(Owner);
-	if (Owner->IsLocallyControlled() && DialogWidgetClass)
+	const APawn* DialogComponentOwner = GetOwner<APawn>();
+	
+	check(DialogComponentOwner);
+	if (DialogWidgetClass && DialogComponentOwner->IsLocallyControlled())
 	{
-		APlayerController* PlayerController = Owner->GetController<APlayerController>();
+		APlayerController* PlayerController = DialogComponentOwner->GetController<APlayerController>();
 		check(PlayerController);
 		DialogWidget = CreateWidget<UDialogWidget>(PlayerController, DialogWidgetClass);
 		check(DialogWidget);

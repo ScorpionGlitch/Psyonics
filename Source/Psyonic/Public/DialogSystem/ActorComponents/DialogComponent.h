@@ -8,6 +8,8 @@
 #include "DialogSystem/Widgets/DialogWidget.h"
 #include "DialogComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDialogStart);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDialogEnd);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PSYONIC_API UDialogComponent : public UActorComponent
@@ -15,6 +17,12 @@ class PSYONIC_API UDialogComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:
+	UPROPERTY()
+	FOnDialogStart OnDialogStart;
+
+	UPROPERTY()
+	FOnDialogEnd OnDialogEnd;
+	
 	UFUNCTION(BlueprintCallable)
 	bool StartConversation(const FDataTableRowHandle& ConversationHandle);
 
