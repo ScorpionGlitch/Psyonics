@@ -10,7 +10,7 @@ class UMotionWarpingComponent;
 class UAbilitySystemComponent;
 
 UCLASS(config=Game)
-class APsyonicPlayer : public APsyonicCharacterBase
+class PSYONIC_API APsyonicPlayer : public APsyonicCharacterBase
 {
 	GENERATED_BODY()
 

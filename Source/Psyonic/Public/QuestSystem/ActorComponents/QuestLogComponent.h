@@ -9,7 +9,7 @@
 class AQuestBase;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class UQuestLogComponent : public UActorComponent
+class PSYONIC_API UQuestLogComponent : public UActorComponent
 {
 	GENERATED_BODY()
 

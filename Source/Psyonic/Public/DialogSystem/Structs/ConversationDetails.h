@@ -12,7 +12,7 @@
 
 /** Please add a struct description */
 USTRUCT(BlueprintType)
-struct FConversationDetails : public FTableRowBase
+struct PSYONIC_API FConversationDetails : public FTableRowBase
 {
 	GENERATED_BODY()
 

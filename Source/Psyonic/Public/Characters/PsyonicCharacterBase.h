@@ -16,7 +16,7 @@ class UAbilitySystemComponent;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCharacterDiedDelegate, APsyonicCharacterBase*, character);
 
 UCLASS(config=Game)
-class APsyonicCharacterBase : public ACharacter, public IAbilitySystemInterface
+class PSYONIC_API APsyonicCharacterBase : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 public:

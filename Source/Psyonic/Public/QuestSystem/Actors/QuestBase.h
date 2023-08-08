@@ -8,7 +8,7 @@
 #include "QuestBase.generated.h"
 
 UCLASS()
-class AQuestBase : public AActor
+class PSYONIC_API AQuestBase : public AActor
 {
 	GENERATED_BODY()
 

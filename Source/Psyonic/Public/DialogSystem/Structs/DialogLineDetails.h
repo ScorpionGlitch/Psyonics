@@ -6,7 +6,7 @@
 //struct FResponsePrerequisite;
 /** Please add a struct description */
 USTRUCT(BlueprintType)
-struct FDialogLineDetails : public FTableRowBase
+struct PSYONIC_API FDialogLineDetails : public FTableRowBase
 {
 	GENERATED_BODY()
 

@@ -5,7 +5,7 @@
 #include "InteractionWidget.generated.h"
 
 UCLASS(Abstract)
-class UInteractionWidget : public UUserWidget
+class PSYONIC_API UInteractionWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	

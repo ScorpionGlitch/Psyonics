@@ -7,7 +7,7 @@
 #include "PsyonicNPC.generated.h"
 
 UCLASS(config=Game)
-class APsyonicNPC : public APsyonicCharacterBase
+class PSYONIC_API APsyonicNPC : public APsyonicCharacterBase
 {
 	GENERATED_BODY()
 

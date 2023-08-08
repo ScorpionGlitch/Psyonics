@@ -7,7 +7,7 @@
 #include "QuestDetails.generated.h"
 
 USTRUCT(BlueprintType)
-struct FQuestDetails: public FTableRowBase
+struct PSYONIC_API FQuestDetails: public FTableRowBase
 {
 	GENERATED_BODY()
 

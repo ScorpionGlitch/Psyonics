@@ -6,7 +6,7 @@
 #include "TaskDetails.generated.h"
 
 USTRUCT(BlueprintType)
-struct FTaskDetails
+struct PSYONIC_API FTaskDetails
 {
 	GENERATED_BODY()
 

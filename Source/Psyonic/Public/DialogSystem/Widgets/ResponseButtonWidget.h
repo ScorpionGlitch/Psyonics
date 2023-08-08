@@ -8,7 +8,7 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnResponseClicked, const FResponseDetails&, ResponseDetails);
 
 UCLASS(Abstract)
-class UResponseButtonWidget : public UUserWidget
+class PSYONIC_API UResponseButtonWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	

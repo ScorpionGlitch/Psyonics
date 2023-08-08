@@ -5,7 +5,7 @@
 
 /** Please add a struct description */
 USTRUCT(BlueprintType)
-struct FResponsePrerequisiteDetails : public FTableRowBase
+struct PSYONIC_API FResponsePrerequisiteDetails : public FTableRowBase
 {
 	GENERATED_BODY()
 

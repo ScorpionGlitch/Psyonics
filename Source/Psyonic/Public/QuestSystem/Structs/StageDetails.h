@@ -7,7 +7,7 @@
 #include "StageDetails.generated.h"
 
 USTRUCT(BlueprintType)
-struct FStageDetails
+struct PSYONIC_API FStageDetails
 {
 	GENERATED_BODY()
 
