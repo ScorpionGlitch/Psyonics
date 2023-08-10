@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "InventorySystem/Structs/ItemDetails.h"
 #include "InventorySystem/Widgets/InventoryWidget.h"
+#include "InventorySystem/Structs/ItemDetails.h"
 
 void UInventoryWidget::NativeConstruct()
 {
