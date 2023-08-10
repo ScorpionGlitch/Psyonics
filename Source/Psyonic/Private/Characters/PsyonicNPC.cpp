@@ -5,4 +5,5 @@
 APsyonicNPC::APsyonicNPC(const class FObjectInitializer& ObjectInitializer) :
 Super(ObjectInitializer)
 {
+	QuestGiver = CreateDefaultSubobject<UQuestGiverComponent>(TEXT("QuestGiver"));
 }
