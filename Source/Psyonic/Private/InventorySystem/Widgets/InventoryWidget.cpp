@@ -2,7 +2,6 @@
 
 #include "InventorySystem/Widgets/InventoryWidget.h"
 #include "InventorySystem/ActorComponents/InventoryComponent.h"
-#include "InventorySystem/Structs/ItemDetails.h"
 
 void UInventoryWidget::NativeConstruct()
 {

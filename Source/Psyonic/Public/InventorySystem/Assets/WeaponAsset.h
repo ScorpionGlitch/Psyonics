@@ -7,12 +7,19 @@
 
 #include "WeaponAsset.generated.h"
 
-UCLASS(BlueprintType)
-class PSYONIC_API UWeaponAsset //: public UItemAsset
+UCLASS()
+class PSYONIC_API UWeaponAsset : public UItemAsset
 {
 	GENERATED_BODY()
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory|Weapon")
 	FWeaponDetails WeaponDetails;
+
+	/*
+	FPrimaryAssetId GetPrimaryAssetId() const override
+	{
+		return FPrimaryAssetId("Weapons", GetFName());
+	}
+	//*/
 };
