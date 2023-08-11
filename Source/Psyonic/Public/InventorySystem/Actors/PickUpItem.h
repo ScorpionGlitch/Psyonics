@@ -15,10 +15,10 @@ class PSYONIC_API APickUpItem : public AActor
 public:	
 	// Sets default values for this actor's properties
 	APickUpItem();
-
+	//*
 	UPROPERTY(BlueprintReadWrite, meta = (DisplayName = "Item Details"))
 	FItemDetails ItemDetails;
-
+	//*/
 	UPROPERTY(BlueprintReadWrite, meta = (DisplayName = "Item Count"))
 	int32 ItemCount;
 

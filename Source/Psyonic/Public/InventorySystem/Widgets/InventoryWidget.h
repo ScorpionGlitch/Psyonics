@@ -24,6 +24,9 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class UInventoryItemWidget> EntryClass;
 
+protected:
+	class UInventoryComponent* InventoryComponent;
+	
 	/*
 	UPROPERTY(BlueprintReadOnly, Category = "Inventory")
 	UListView* InventoryList;

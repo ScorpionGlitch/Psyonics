@@ -25,10 +25,10 @@ struct PSYONIC_API FItemDetails
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory", meta = (DisplayName = "Item Icon"))
 		UTexture2D* ItemIcon = nullptr;
-
+	/*
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory", meta = (DisplayName = "Item Dropped Mesh"))
 		UStaticMesh* ItemDroppedMesh = nullptr;
-
+	*/
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory", meta = (DisplayName = "Item Value"))
 		int32 ItemValue = 0;
 

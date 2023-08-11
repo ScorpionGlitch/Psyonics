@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Blueprint/UserWidget.h"
 #include "../Structs/ItemDetails.h"
 #include "Blueprint/IUserObjectListEntry.h"
 #include "InventoryItemWidget.generated.h"
@@ -17,8 +18,6 @@ class PSYONIC_API UInventoryItemWidget : public UUserWidget, public IUserObjectL
 private:
 	virtual void NativeOnListItemObjectSet(UObject* ListItemObject) override;
 
-	void InitializeFromInventoryItem(FItemDetails ItemDetails);
-	
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* NameLabel;
 

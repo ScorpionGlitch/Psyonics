@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "../Structs/InventoryItemDetails.h"
+//#include "../Structs/InventoryItemDetails.h"
 #include "InventoryComponent.generated.h"
 
 
@@ -16,10 +16,10 @@ class PSYONIC_API UInventoryComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UInventoryComponent();
-
+/*
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory")
 	TArray<FInventoryItemDetails> Inventory;
-
+//*/
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
